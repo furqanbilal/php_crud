@@ -34,19 +34,19 @@
         <input type="hidden" name="id" value="<?php echo $userReceived ? $userReceived[0]['id'] : '' ?>">
         <div class="form-group m-2">
             <label for="name">Name</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?php echo $userReceived ? $userReceived[0]['name'] : '' ?>">
+            <input required type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?php echo $userReceived ? $userReceived[0]['name'] : '' ?>">
         </div>
         <div class="form-group m-2">
             <label for="age">Age</label>
-            <input type="number" class="form-control" name="age" id="age" placeholder="Age" value="<?php echo $userReceived ? $userReceived[0]['age'] : '' ?>">
+            <input required type="number" class="form-control" name="age" id="age" placeholder="Age" value="<?php echo $userReceived ? $userReceived[0]['age'] : '' ?>">
         </div>
         <div class="form-group m-2">
             <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo $userReceived ? $userReceived[0]['email'] : '' ?>">
+            <input required type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo $userReceived ? $userReceived[0]['email'] : '' ?>">
         </div>
         <div class="form-group m-2">
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $userReceived ? $userReceived[0]['password'] : '' ?>">
+            <input required type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $userReceived ? $userReceived[0]['password'] : '' ?>">
         </div>
         <div class="form-group m-2">
             <button type="submit" name="submit" class="btn btn-primary"><?php echo $isEdit ? 'Update' : 'Save' ?></button>
@@ -59,10 +59,10 @@
 
         try {
             $conn = getConnection();
-            $name = $_REQUEST['name'];
-            $age = $_REQUEST['age'];
-            $email = $_REQUEST['email'];
-            $password = $_REQUEST['password'];
+            $name = $_REQUEST['name'] ? $_REQUEST['name'] : '';
+            $age = $_REQUEST['age'] ? $_REQUEST['age'] : 'NULL';
+            $email = $_REQUEST['email'] ? $_REQUEST['email'] : '';
+            $password = $_REQUEST['password'] ? $_REQUEST['password']: '';
             $id = $_REQUEST['id'];
             if($id != ''){
                  // update users table
