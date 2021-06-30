@@ -1,4 +1,7 @@
-<?php include 'common.php';?>
+<?php 
+    include 'common.php';
+?>
+
 <?php
     $isEdit = false;
     $userReceived = [];
@@ -20,7 +23,9 @@
 
 ?>
 
+
 <div class="container">
+
     <div class="text-center">
         <h1><?php echo $isEdit ? 'Edit' : 'Add' ?> User</h1>
     </div>
